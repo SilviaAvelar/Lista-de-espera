@@ -1,0 +1,539 @@
+/*  ==========================================================================
+    Variáveis Root (Personalize Cores e Fontes Aqui)
+    ========================================================================== */
+
+  :root {
+    --primary-color: #2e5077;
+    /* Cor primária (azul claro) */
+    --secondary-color: #ffc145;
+    /* Cor secundária (rosa pêssego) */
+    --accent-color: rgb(53, 131, 204);
+    /* Cor de destaque (laranja) */
+    --neutral-bg-color: #f5f5f5;
+    /* Cor neutra para o fundo (cinza muito claro) */
+    --neutral-text-color: #333333;
+    /* Cor neutra para o texto (cinza escuro) */
+    --font-family-body: "Roboto", sans-serif;
+    /* Fonte para o corpo do texto */
+    --font-family-headings: "Montserrat", sans-serif;
+    /* Fonte para os títulos */
+    /* Cores dos botões de ação */
+    --edit-button-color: #4CAF50;
+    --delete-button-color: #f44336;
+    --edit-button-hover-color: #388E3C;
+    --delete-button-hover-color: #D32F2F;
+}
+
+/*  ==========================================================================
+    Estilos Base (Resets e Body)
+    ========================================================================== */
+
+body {
+    font-family: var(--font-family-body);
+    background-color: var(--neutral-bg-color);
+    color: var(--neutral-text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*  ==========================================================================
+    Tipografia (Cabeçalhos, Texto)
+    ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-headings);
+}
+
+/*  ==========================================================================
+    Cabeçalho (Navegação)
+    ========================================================================== */
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+}
+
+/*  ==========================================================================
+    Layout (Seções, Contêineres)
+    ========================================================================== */
+
+.sections-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1800px;
+    flex: 1;
+}
+
+/*  ==========================================================================
+    Seções (Formulário, Filtro, Lista de Participantes)
+    ========================================================================== */
+
+#form-section,
+#filter-section,
+#participants-list-section {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+#form-section h2,
+#filter-section h2,
+#participants-list-section h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+/*  ==========================================================================
+    Filtros por Função (Estilos Específicos)
+    ========================================================================== */
+
+#filter-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-section {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.tab-section h3 {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: -10px -10px 10px -10px;
+    border-radius: 5px 5px 0 0;
+    font-size: 1.1em;
+}
+
+.tab-content {
+    flex-direction: column;
+}
+
+.tab-content button {
+    background-color: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 5px;
+    padding: 8px 16px;
+    display: inline-block;
+}
+
+.tab-content button:hover {
+    background-color: #fb4141;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+/* Estilos do botão "Saiba Mais" */
+#saiba-mais-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto;
+    width: fit-content;
+}
+
+#saiba-mais-button:hover {
+    background-color: #23405f;
+}
+
+/*  ==========================================================================
+    Estilos do Formulário (Contêiner, Elementos)
+    ========================================================================== */
+
+.form-container {
+    text-align: center;
+}
+
+.image-frame {
+    width: 50%;
+    padding: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    display: inline-block;
+}
+
+.form-frame {
+    width: 80%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    display: inline-block;
+}
+
+.image-frame img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Estilos dos elementos do formulário (inputs, select, botões) */
+form input,
+form select,
+form button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Estilos do botão do formulário (enviar) */
+form button {
+    background-color: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #fb4141;
+}
+
+/* Estilos dos rótulos do formulário */
+.form-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #999;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+/* Posicionamento do rótulo do input do formulário */
+.form-group.input-group label {
+    top: 20px;
+}
+
+/* Estilos quando o campo está focado ou preenchido */
+.form-group input:focus+label,
+.form-group input:valid+label,
+.form-group select:focus+label,
+.form-group select:valid+label {
+    top: -10px;
+    left: 5px;
+    font-size: 0.8em;
+    color: var(--primary-color);
+    background: white;
+    padding: 0 5px;
+}
+
+/* Estilos quando o campo select tem a classe 'selected' */
+.form-group select.selected+label {
+    top: -10px;
+    left: 5px;
+    font-size: 0.8em;
+    color: var(--primary-color);
+    background: white;
+    padding: 0 5px;
+}
+
+/*  ==========================================================================
+    Select (Seta Personalizada)
+    ========================================================================== */
+
+select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url(
+        'data:image/svg+xml;utf8,<svg fill="%23999" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'
+    );
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: 50%;
+    padding-right: 2em;
+}
+
+select:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+/*  ==========================================================================
+    Seção da Lista de Participantes (Estilos Gerais, Itens da Lista)
+    ========================================================================== */
+
+#participants-list-section {
+    text-align: center;
+}
+
+#participants-list {
+    margin-top: 20px;
+    display: inline-block;
+    text-align: left;
+}
+
+#participants-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+#participants-list li {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 0.5s forwards;
+    position: relative; 
+    padding-right: 40px; 
+}
+
+/* Estilos para a função selecionada na lista */
+#participants-list h3 {
+    text-align: center;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+/* Estilos para o número do participante */
+.participant-number {
+    font-weight: bold;
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+/* Estilos para os itens da lista de participantes (nome, função) */
+.participant-name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.participant-role {
+    font-style: italic;
+    color: #777;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/*  ==========================================================================
+    Estilos dos Botões de Editar e Excluir (Ações)
+    ========================================================================== */
+.participant-actions {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.participant-item:hover .participant-actions {
+    opacity: 1;
+}
+
+/* Estilos dos Botões de Editar e Excluir */
+.edit-button,
+.delete-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    margin-left: 5px;
+}
+
+.edit-button {
+    background-color: var(--edit-button-color);
+}
+
+.delete-button {
+    background-color: var(--delete-button-color);
+}
+
+.edit-button:hover {
+    background-color: var(--edit-button-hover-color);
+}
+
+.delete-button:hover {
+    background-color: var(--delete-button-hover-color);
+}
+
+/* Estilos para os ícones dentro dos botões */
+.edit-button i,
+.delete-button i {
+    margin-right: 5px;
+}
+
+/*  ==========================================================================
+    Keyframes (Fade In)
+    ========================================================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*  ==========================================================================
+    Rodapé (Copyright)
+    ========================================================================== */
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.8em;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Estilos opcionais para o Toastify */
+.toastify {
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 12px 24px;
+    margin-top: 500px;
+}
+
+/*  ==========================================================================
+    Estilos para a página oficina-digital.html
+    ========================================================================== */
+
+body {
+    font-family: var(--font-family-body);
+    background-color: var(--neutral-bg-color);
+    color: var(--neutral-text-color);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+main {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+section h2 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+section p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+section h3 {
+    color: var(--accent-color);
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+section ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+section li {
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+section a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+section a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.8em;
+    width: 100%;
+    margin-top: auto;
+}

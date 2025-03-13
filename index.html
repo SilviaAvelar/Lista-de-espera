@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Espera Oficina Digital Tech Life</title>
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Toastify CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>Lista de Espera Oficina Digital Tech Life</h1>
+    </header>
+
+    <main class="sections-container">
+
+        <!--==========================================================================
+            Filtros por função
+            ========================================================================== -->
+        <section id="filter-section">
+            <h2>Filtrar por Função</h2>
+
+            <div class="tab-section">
+                <h3>Desenvolvimento</h3>
+                <div class="tab-content">
+                    <button id="filter-dev-back-end" data-role="Dev Back End">Dev Back End</button>
+                    <button id="filter-dev-front-end" data-role="Dev Front End">Dev Front End</button>
+                    <button id="filter-dev-full-stack" data-role="Dev Full Stack">Dev Full Stack</button>
+                </div>
+            </div>
+
+            <div class="tab-section">
+                <h3>Design</h3>
+                <div class="tab-content">
+                    <button id="filter-ui-designer" data-role="UI Designer">UI Designer</button>
+                    <button id="filter-ux-designer" data-role="UX Designer">UX Designer</button>
+                </div>
+            </div>
+
+            <div class="tab-section">
+                <h3>Gestão</h3>
+                <div class="tab-content">
+                    <button id="filter-product-owner" data-role="Product Owner">Product Owner</button>
+                    <button id="filter-quality-assurance" data-role="Quality Assurance">Quality Assurance</button>
+                    <button id="filter-scrum-master" data-role="Scrum Master">Scrum Master</button>
+                </div>
+            </div>
+
+            <button id="saiba-mais-button">Saiba Mais</button>
+        </section>
+
+        <!--==========================================================================
+            Seção para adicionar novos participantes
+            ========================================================================== -->
+        <section id="form-section">
+            <h2>Adicionar à Lista de Espera</h2>
+            <div class="form-container">
+                <div class="image-frame">
+                    <img src="/assets/logo.jpeg" alt="Logo da Tech Life">
+                </div>
+                <div class="form-frame">
+                    <form id="waitlist-form">
+                        <div class="form-group input-group">
+                            <input type="text" id="full-name" required>
+                            <label for="full-name">Nome Completo</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="role" required>
+                                <option value="" disabled selected></option>
+                                <option value="Dev Back End">Dev Back End</option>
+                                <option value="Dev Front End">Dev Front End</option>
+                                <option value="Dev Full Stack">Dev Full Stack</option>
+                                <option value="Product Owner">Product Owner</option>
+                                <option value="Quality Assurance">Quality Assurance</option>
+                                <option value="Scrum Master">Scrum Master</option>
+                                <option value="UI Designer">UI Designer</option>
+                                <option value="UX Designer">UX Designer</option>
+                            </select>
+                            <label for="role">Escolha a Função</label>
+                        </div>
+                        <button type="submit">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!--==========================================================================
+            Lista de Participantes
+            ========================================================================== -->
+        <section id="participants-list-section">
+            <h2>Lista de Participantes</h2>
+            <div id="participants-list"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2024 Oficina Digital Tech Life. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Modal de Senha -->
+    <div id="passwordModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-radius: 5px;">
+            <label for="passwordInput">Senha:</label>
+            <input type="password" id="passwordInput" name="password" required>
+            <button id="submitPassword">Enviar</button>
+            <button id="cancelPassword">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Scripts JavaScript -->
+    <script src="/assets/js/main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+
+</html>
