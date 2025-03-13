@@ -2,7 +2,7 @@
 //  Configurações Globais
 // ==========================================================================
 
-const API_URL = 'http://localhost:3001'; // URL base da API
+const API_URL = '/api';                     // URL base da API
 let participants = [];                     // Array para armazenar os participantes
 let editingParticipantId = null;           // ID do participante em edição
 
