@@ -2,9 +2,9 @@
 //  Configurações Globais
 // ==========================================================================
 
-const API_URL = '/api';                     // URL base da API
-let participants = [];                     // Array para armazenar os participantes
-let editingParticipantId = null;           // ID do participante em edição
+const API_URL = '/api'; // URL base da API (Vercel Serverless Functions)
+let participants = []; // Array para armazenar os participantes
+let editingParticipantId = null; // ID do participante em edição
 
 // ==========================================================================
 //  Funções de Mensagens (Toastify)
@@ -48,7 +48,7 @@ async function getParticipants(role = null) {
 
         const data = await response.json();
         participants = data;
-        displayParticipants(data, role);  // Passa o 'role' para exibir o título
+        displayParticipants(data, role); // Passa o 'role' para exibir o título
     } catch (error) {
         console.error("Erro ao buscar participantes:", error);
         displayMessage("Erro ao buscar participantes. Verifique o console.", "red");
@@ -63,7 +63,9 @@ async function addParticipant(participant) {
     try {
         const response = await fetch(`${API_URL}/participants`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(participant)
         });
 
@@ -71,7 +73,7 @@ async function addParticipant(participant) {
             throw new Error(`Erro ao adicionar participante: ${response.status}`);
         }
 
-        getParticipants();  // Atualiza a lista
+        getParticipants(); // Atualiza a lista
         displayMessage("Adicionado com sucesso!", "green");
         document.getElementById("waitlist-form").reset();
     } catch (error) {
@@ -87,9 +89,12 @@ async function addParticipant(participant) {
 async function updateParticipant(participant) {
     try {
         const token = localStorage.getItem('authToken');
-        const { _id, ...updateData } = participant;
+        const {
+            _id,
+            ...updateData
+        } = participant;
 
-        const response = await fetch(`${API_URL}/participants/${_id}`, {
+        const response = await fetch(`${API_URL}/participants?id=${_id}`, { // Envia o ID pela query
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -102,7 +107,7 @@ async function updateParticipant(participant) {
             throw new Error(`Erro ao atualizar participante: ${response.status}`);
         }
 
-        getParticipants();  // Atualiza a lista
+        getParticipants(); // Atualiza a lista
         displayMessage("Participante atualizado com sucesso!", "green");
     } catch (error) {
         console.error("Erro ao atualizar participante:", error);
@@ -115,22 +120,23 @@ async function updateParticipant(participant) {
 
 /**
  * Exclui um participante da API.
- * @param {string} id - ID do participante a ser excluído.
  */
 async function deleteParticipant(id) {
     try {
         const token = localStorage.getItem('authToken');
 
-        const response = await fetch(`${API_URL}/participants/${id}`, {
+        const response = await fetch(`${API_URL}/participants?id=${id}`, { // Envia o ID pela query
             method: 'DELETE',
-            headers: { 'Authorization': `Bearer ${token}` }
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
         });
 
         if (!response.ok) {
             throw new Error(`Erro ao excluir participante: ${response.status}`);
         }
 
-        getParticipants();  // Atualiza a lista
+        getParticipants(); // Atualiza a lista
         displayMessage("Participante excluído com sucesso!", "green");
     } catch (error) {
         console.error("Erro ao excluir participante:", error);
@@ -201,7 +207,9 @@ function displayParticipants(participantsList, currentRole = null) {
  */
 function scrollToParticipants() {
     const participantsSection = document.getElementById('participants-list-section');
-    participantsSection.scrollIntoView({ behavior: 'smooth' });
+    participantsSection.scrollIntoView({
+        behavior: 'smooth'
+    });
 }
 
 // ==========================================================================
@@ -226,7 +234,9 @@ function startEditParticipant(participant) {
     cancelButton.addEventListener("click", cancelEdit);
 
     submitButton.parentNode.insertBefore(cancelButton, submitButton.nextSibling);
-    document.getElementById("form-section").scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("form-section").scrollIntoView({
+        behavior: 'smooth'
+    });
 }
 
 /**
@@ -270,14 +280,18 @@ function showPasswordModal(actionButton) {
     cancelPasswordButton.removeEventListener('click', cancelPasswordHandler);
 
     // Define a função para lidar com o envio da senha (declarada fora para poder ser removida)
-    submitPasswordHandler = async function() {
+    submitPasswordHandler = async function () {
         const senhaInserida = passwordInput.value;
 
         try {
             const response = await fetch(`${API_URL}/login`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ password: senhaInserida })
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    password: senhaInserida
+                })
             });
 
             if (response.ok) {
@@ -299,7 +313,7 @@ function showPasswordModal(actionButton) {
     };
 
     // Define a função para cancelar (declarada fora para poder ser removida)
-    cancelPasswordHandler = function() {
+    cancelPasswordHandler = function () {
         closePasswordModal();
     };
 
@@ -318,7 +332,7 @@ function closePasswordModal() {
 async function executeAction(button) {
     if (button.classList.contains("edit-button")) {
         const id = button.dataset.id;
-        const participant = participants.find((p) => p._id === id);
+        const participant = participants.find(p => p._id === id);
         startEditParticipant(participant);
     } else if (button.classList.contains("delete-button")) {
         const id = button.dataset.id;
@@ -330,7 +344,7 @@ async function executeAction(button) {
  * Manipula o evento de clique nos botões de editar e excluir.
  */
 async function handleActionButtonClick(event) {
-    const button = event.target;
+    let button = event.target;
 
     // Se o clique não foi diretamente no botão (mas sim no ícone dentro),
     // sobe na árvore DOM para pegar o botão correto.
@@ -359,7 +373,10 @@ document.getElementById("waitlist-form").addEventListener("submit", async functi
         return;
     }
 
-    const newParticipant = { name: fullName, role: role };
+    const newParticipant = {
+        name: fullName,
+        role: role
+    };
     if (editingParticipantId) {
         newParticipant._id = editingParticipantId;
         await updateParticipant(newParticipant);
