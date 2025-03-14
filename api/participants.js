@@ -10,7 +10,7 @@ const secretKey = process.env.JWT_SECRET;
 let cachedClient = null;
 
 async function connectToDatabase() {
-    if (cachedClient && cachedClient.isConnected()) {
+    if (cachedClient && cachedClient._eventsCount > 0) {
         console.log("Usando conexão existente com o MongoDB");
         return cachedClient;
     }
