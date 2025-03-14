@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 
 async function generateHash() {
-  const password = 'secreta123'; // *** SUBSTITUA PELA SUA SENHA REAL ***
+  const password = 'secreta123'; 
   const saltRounds = 10;
 
   try {

@@ -1,42 +1,45 @@
-require('dotenv').config(); // Carrega as variáveis de ambiente
+require('dotenv').config();
 
 const { MongoClient, ObjectId } = require('mongodb');
-const jwt = require('jsonwebtoken'); // Importe jwt aqui
+const jwt = require('jsonwebtoken');
+
 const uri = process.env.MONGODB_URI;
 const dbName = 'waitlistDB';
-const secretKey = process.env.JWT_SECRET; // Importe a chave secreta
-// Middleware para autenticar o token JWT
-const authenticateToken = (req, res, next) => {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
+const secretKey = process.env.JWT_SECRET;
 
-    if (token == null) return res.status(401).json({ message: 'Não autorizado' }); // Não autorizado
+let cachedClient = null;
 
-    jwt.verify(token, secretKey, (err, user) => {
-        if (err) return res.status(403).json({ message: 'Proibido' }); // Proibido
-        req.user = user;
-        next();
-    });
-};
+async function connectToDatabase() {
+    if (cachedClient && cachedClient.isConnected()) {
+        console.log("Usando conexão existente com o MongoDB");
+        return cachedClient;
+    }
 
-module.exports = async (req, res) => {
     const client = new MongoClient(uri);
 
-    console.log("MongoDB URI:", uri); // Log da string de conexão
-
     try {
+        console.log("Tentando conectar ao MongoDB...");
         await client.connect();
-        console.log("Conexão com o MongoDB estabelecida com sucesso!"); // Log de sucesso
+        console.log("Conexão com o MongoDB estabelecida com sucesso!");
+        cachedClient = client;
+        return client;
+    } catch (error) {
+        console.error('Erro ao conectar ao MongoDB:', error);
+        throw error;
+    }
+}
 
+module.exports = async (req, res) => {
+    try {
+        const client = await connectToDatabase();
         const db = client.db(dbName);
         const participantsCollection = db.collection('participants');
 
         if (req.method === 'GET') {
-            // Rota GET para listar participantes (com filtro opcional por função)
             try {
                 const role = req.query.role;
-                const query = role ? { role: role } : {}; // Cria a query com base no parâmetro 'role'
-                console.log("Query MongoDB:", query);  // Adicione esta linha
+                const query = role ? { role: role } : {};
+                console.log("Query MongoDB:", query);
                 const participants = await participantsCollection.find(query).toArray();
                 res.status(200).json(participants);
             } catch (error) {
@@ -44,7 +47,6 @@ module.exports = async (req, res) => {
                 return res.status(500).json({ message: 'Erro ao buscar participantes' });
             }
         } else if (req.method === 'POST') {
-            // Rota POST para adicionar participante
             try {
                 const newParticipant = req.body;
                 const result = await participantsCollection.insertOne(newParticipant);
@@ -55,7 +57,6 @@ module.exports = async (req, res) => {
             }
         }
         else if (req.method === 'PUT') {
-            // Rota PUT para atualizar participante (requer autenticação)
             try {
                 const authHeader = req.headers['authorization'];
                 const token = authHeader && authHeader.split(' ')[1];
@@ -91,7 +92,6 @@ module.exports = async (req, res) => {
             }
 
         } else if (req.method === 'DELETE') {
-            // Rota DELETE para excluir participante
             try {
                 const authHeader = req.headers['authorization'];
                 const token = authHeader && authHeader.split(' ')[1];
@@ -129,11 +129,5 @@ module.exports = async (req, res) => {
     } catch (error) {
         console.error('Erro ao lidar com participantes:', error);
         return res.status(500).json({ message: 'Erro ao lidar com participantes' });
-    } finally {
-        try {
-            await client.close();
-        } catch (error) {
-            console.error('Erro ao fechar a conexão com o MongoDB:', error);
-        }
     }
 };
