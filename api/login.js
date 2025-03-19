@@ -1,4 +1,4 @@
-require('dotenv').config(); // Carrega as variáveis de ambiente
+require('dotenv').config(); 
 
 const { MongoClient } = require('mongodb');
 const bcrypt = require('bcrypt');
