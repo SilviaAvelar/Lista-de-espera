@@ -3,7 +3,6 @@
 // ==========================================================================
 
 const API_URL = '/api'; // URL base da API (Vercel Serverless Functions)
-
 let participants = []; // Array para armazenar os participantes
 let editingParticipantId = null; // ID do participante em edição
 
