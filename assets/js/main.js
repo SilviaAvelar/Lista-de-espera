@@ -2,7 +2,10 @@
 //  Configurações Globais
 // ==========================================================================
 
-const API_URL = '/api'; // URL base da API (Vercel Serverless Functions)
+const API_URL = process.env.NODE_ENV === 'production'
+  ? '/api' // URL base da API (Vercel Serverless Functions em produção)
+  : 'http://localhost:3000/api'; // URL base da API (desenvolvimento local)
+
 let participants = []; // Array para armazenar os participantes
 let editingParticipantId = null; // ID do participante em edição
 

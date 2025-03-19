@@ -3,7 +3,11 @@ require('dotenv').config();
 const { MongoClient, ObjectId } = require('mongodb');
 const jwt = require('jsonwebtoken');
 
-const uri = process.env.MONGODB_URI;
+// Determine a URI do MongoDB com base no ambiente
+const uri = process.env.NODE_ENV === 'production'
+    ? process.env.MONGODB_URI // Use a variável de ambiente do Vercel (produção)
+    : 'mongodb://localhost:27017/waitlistDB'; // Use o MongoDB local (desenvolvimento)
+
 const dbName = 'waitlistDB';
 const secretKey = process.env.JWT_SECRET;
 
