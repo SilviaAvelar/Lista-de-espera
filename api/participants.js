@@ -71,11 +71,23 @@ module.exports = async (req, res) => {
                     try {
                         const participantId = req.query.id;
                         const updatedParticipant = req.body;
-                        console.log(participantId);
+
+                        console.log("participantId:", participantId); // ADICIONADO
+                        console.log("updatedParticipant:", JSON.stringify(updatedParticipant)); // ADICIONADO
+
+                        // Verificando se participantId é um ObjectId válido
+                        if (!ObjectId.isValid(participantId)) {
+                            console.error("participantId inválido:", participantId);
+                            return res.status(400).json({ error: "ID do participante inválido" });
+                        }
+
                         const result = await db.collection('participants').updateOne(
                             { _id: new ObjectId(participantId) },
                             { $set: updatedParticipant }
                         );
+
+                        console.log("Resultado da atualização:", result); // ADICIONADO
+
                         if (result.modifiedCount === 1) {
                             res.status(200).json({ message: "Participante atualizado com sucesso" });
                         } else {
