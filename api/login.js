@@ -4,7 +4,7 @@ const { MongoClient } = require('mongodb');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const uri = process.env.MONGODB_URI;
+const uri = 'mongodb://localhost:27017/waitlistDB';
 const dbName = 'waitlistDB';
 const secretKey = process.env.JWT_SECRET;
 
