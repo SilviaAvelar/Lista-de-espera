@@ -136,4 +136,22 @@ Todos os endpoints estão prefixados com `/api`.
     *   **Resposta de Sucesso (200):** `{ "message": "Participante excluído" }`
     *   **Resposta de Falha (404):** `{ "error": "Participante não encontrado" }`
 
-Feito com ❤️ por Silvia Avelar.
+## 🧑‍💻 Autor
+<p align="center">
+<img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&color=Fira&center=true&vCenter=true&width=650&height=70&duration=4000&lines=Olá!+Sou+a+Sílvia+Avelar...;Desenvolvedora+WEB...+Front-End...;Eternamente+Aprendendo...;Amante+de+Código+e+Café...;Confira+meus+links!+☕" alt="Typing SVG" />
+</p>
+<p align="center">
+Desenvolvido com 💙 por <strong>Sílvia Avelar</strong>
+</p>
+<p align="center">
+<a href="https://www.linkedin.com/in/silvia-avelar/" target="_blank">
+<img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+</a>
+&nbsp;&nbsp;
+<a href="https://silviaavelar.github.io/Portfolio/" target="_blank">
+<img src="https://img.shields.io/badge/-Portfólio-FF4081?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfólio">
+</a>
+</p>
+<p align="center">
+Entre em contato ou veja outros projetos!
+</p>
