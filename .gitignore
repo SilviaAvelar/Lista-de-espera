@@ -89,6 +89,8 @@ id_rsa
 id_rsa.pub
 *.pem
 *.key
+generate-hash.js
+
 
 # Diretório de cobertura usado por ferramentas como Jest ou Istanbul
 coverage/
