@@ -24,20 +24,11 @@
 
 
 # 🛠️ Tecnologias Utilizadas
-- Frontend
-HTML5 + CSS3
-JavaScript (Vanilla JS)
-Toastify.js – notificações
-Font Awesome – ícones
+- Frontend -
+HTML5 + CSS3; JavaScript (Vanilla JS); Toastify.js – notificações; Font Awesome – ícones
 
-- Backend (Serverless via Vercel)
-Node.js
-MongoDB Driver
-bcrypt – hashing de senhas
-jsonwebtoken (JWT) – autenticação
-dotenv – variáveis de ambiente
-Banco de Dados
-MongoDB Atlas
+- Backend (Serverless via Vercel) -
+Node.js; MongoDB Driver; bcrypt – hashing de senhas; jsonwebtoken (JWT) – autenticação; dotenv – variáveis de ambiente; Banco de Dados; MongoDB Atlas
 
 
 # ⚙️ Pré-requisitos
