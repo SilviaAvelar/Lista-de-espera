@@ -1,9 +1,18 @@
-🚀 Oficina Digital Tech Life – Lista de Espera
-<img src="/assets/preview.png" alt="Banner da Oficina Digital" />
-Uma aplicação web simples e eficiente para gerenciar a lista de espera da Oficina Digital Tech Life. Permite inscrições de participantes e ações administrativas protegidas por login.
+# 🚀 Oficina Digital Tech Life – Lista de Espera
+
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/Toastify.js-34A853?style=for-the-badge&logo=javascript&logoColor=white" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/Font%20Awesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" /></a>
+</p>
 
 
-✨ Funcionalidades
+# ✨ Funcionalidades
 ✅ Inscrição de Participantes: Adicione nome completo e função desejada.
 📋 Listagem de Inscritos: Visualize todos os participantes da lista.
 🎯 Filtro por Função: Encontre participantes por cargo (ex: Dev Back End, UI Designer).
@@ -14,7 +23,7 @@ Uma aplicação web simples e eficiente para gerenciar a lista de espera da Ofic
 🔔 Notificações com Toastify.js: Feedback visual de sucesso ou erro.
 
 
-🛠️ Tecnologias Utilizadas
+# 🛠️ Tecnologias Utilizadas
 Frontend
 HTML5 + CSS3
 JavaScript (Vanilla JS)
@@ -31,14 +40,14 @@ Banco de Dados
 MongoDB Atlas
 
 
-⚙️ Pré-requisitos
+# ⚙️ Pré-requisitos
 Node.js 18.x ou superior
 npm ou Yarn
 Vercel CLI (opcional, mas recomendado)
 Conta no MongoDB Atlas
 
 
-🚀 Instalação Local
+# 🚀 Instalação Local
 bash
 Copiar
 Editar
@@ -48,11 +57,29 @@ npm install
 💡 Se o package.json estiver em api/, navegue até lá antes de rodar o npm install.
 
 
-📡 Endpoints da API
+# 📡 Endpoints da API
 Todos os endpoints começam com /api.
 
+## 📸 Captura de Tela
+![Captura do Projeto](assets/preview.png)
 
-🧑‍💻 Autor
-Desenvolvido com 💙 por Sílvia Avelar
 
-<div align="center"> <a href="https://www.linkedin.com/in/silviaavelar/" target="_blank"> <img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Sílvia%20Avelar-blue?style=for-the-badge&logo=linkedin" /> </a> &nbsp; <a href="https://seu-portfolio.com" target="_blank"> <img alt="Portfólio" src="https://img.shields.io/badge/Portfólio-Ver%20Projetos-orange?style=for-the-badge&logo=vercel" /> </a> </div>
+## 🧑‍💻 Autor
+<p align="center">
+<img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&color=Fira&center=true&vCenter=true&width=650&height=70&duration=4000&lines=Olá!+Sou+a+Sílvia+Avelar...;Desenvolvedora+WEB...+Front-End...;Eternamente+Aprendendo...;Amante+de+Código+e+Café...;Confira+meus+links!+☕" alt="Typing SVG" />
+</p>
+<p align="center">
+Desenvolvido com 💙 por <strong>Sílvia Avelar</strong>
+</p>
+<p align="center">
+<a href="https://www.linkedin.com/in/silvia-avelar/" target="_blank">
+<img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+</a>
+&nbsp;&nbsp;
+<a href="https://silviaavelar.github.io/Portfolio/" target="_blank">
+<img src="https://img.shields.io/badge/-Portfólio-FF4081?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfólio">
+</a>
+</p>
+<p align="center">
+Entre em contato ou veja outros projetos!
+</p>
